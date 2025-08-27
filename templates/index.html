@@ -18,8 +18,8 @@
     <div id="chatbox">
         <h2>Chat with AI</h2>
         <div id="messages"></div>
-        <input id="input" type="text" placeholder="Type your message..." autofocus />
-        <button id="send">Send</button>
+    <textarea id="input" rows="3" style="width:80%;padding:8px;resize:vertical;" placeholder="Type your message..." autofocus></textarea>
+    <button id="send">Send</button>
     </div>
     <script>
         const input = document.getElementById('input');
@@ -29,7 +29,9 @@
             const div = document.createElement('div');
             div.className = 'msg ' + sender;
             if (sender === 'user') {
-                div.innerHTML = '<span style="font-weight:bold;">User:</span> ' + text;
+                // Replace newlines with <br> for user messages
+                const formattedText = text.replace(/\n/g, '<br>');
+                div.innerHTML = '<span style="font-weight:bold;">User:</span> ' + formattedText;
             } else {
                 div.innerHTML = '<span style="color:#0078d7;font-weight:bold;">AI:</span> <span style="color:#0078d7; font-weight:normal;">' + text + '</span>';
             }
@@ -53,7 +55,11 @@
             input.focus();
         };
         input.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') send.click();
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                send.click();
+            }
+            // Shift+Enter will insert a newline (default behavior)
         });
     </script>
 </body>
