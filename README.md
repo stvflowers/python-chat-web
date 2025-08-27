@@ -1,5 +1,7 @@
 # Python Chat Web
 
+![Preview](img/preview.png)
+
 A simple Flask-based Python web application that provides a chat interface for users to interact with an AI agent. Currently, the AI agent echoes back the user's messages. The project is designed for easy extension to integrate real AI responses in the future.
 
 ## Features
@@ -39,6 +41,7 @@ A simple Flask-based Python web application that provides a chat interface for u
 
 - `app.py` - Main Flask application
 - `templates/index.html` - Chat interface HTML
+- `img/preview.png` - Project preview image
 
 ## Customization
 
