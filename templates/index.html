@@ -10,16 +10,30 @@
         .msg { margin: 5px 0; }
     .user { color: #000; }
     .bot { color: #0078d7; font-weight: bold; }
-        #input { width: 80%; padding: 8px; }
-        #send { padding: 8px 16px; }
+        .input-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        #input {
+            flex: 1;
+            padding: 8px;
+            resize: vertical;
+        }
+        #send {
+            padding: 8px 16px;
+            height: 40px;
+        }
     </style>
 </head>
 <body>
     <div id="chatbox">
         <h2>Chat with AI</h2>
         <div id="messages"></div>
-    <textarea id="input" rows="3" style="width:80%;padding:8px;resize:vertical;" placeholder="Type your message..." autofocus></textarea>
-    <button id="send">Send</button>
+        <div class="input-row">
+            <textarea id="input" rows="3" placeholder="Type your message..." autofocus></textarea>
+            <button id="send">Send</button>
+        </div>
     </div>
     <script>
         const input = document.getElementById('input');
